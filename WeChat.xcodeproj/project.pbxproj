@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E4E57891B46EEC1007800AD /* MRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E57881B46EEC1007800AD /* MRLoginViewController.m */; };
+		8E4E578C1B46EEE5007800AD /* MROtherLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E578B1B46EEE5007800AD /* MROtherLoginViewController.m */; };
+		8E842DF51B4678720056AA6F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E842DF41B4678720056AA6F /* Login.storyboard */; };
 		8EB7D85F1B464F8B00BA8FDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7D85E1B464F8B00BA8FDB /* main.m */; };
 		8EB7D8621B464F8B00BA8FDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7D8611B464F8B00BA8FDB /* AppDelegate.m */; };
 		8EB7D8651B464F8B00BA8FDB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7D8641B464F8B00BA8FDB /* ViewController.m */; };
@@ -157,11 +160,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E4E57871B46EEC1007800AD /* MRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRLoginViewController.h; sourceTree = "<group>"; };
+		8E4E57881B46EEC1007800AD /* MRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRLoginViewController.m; sourceTree = "<group>"; };
+		8E4E578A1B46EEE5007800AD /* MROtherLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MROtherLoginViewController.h; sourceTree = "<group>"; };
+		8E4E578B1B46EEE5007800AD /* MROtherLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MROtherLoginViewController.m; sourceTree = "<group>"; };
+		8E842DF41B4678720056AA6F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		8EB7D8591B464F8B00BA8FDB /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB7D85D1B464F8B00BA8FDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EB7D85E1B464F8B00BA8FDB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8EB7D8601B464F8B00BA8FDB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		8EB7D8611B464F8B00BA8FDB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8EB7D8601B464F8B00BA8FDB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
+		8EB7D8611B464F8B00BA8FDB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../AppDelegate.m; sourceTree = "<group>"; };
 		8EB7D8631B464F8B00BA8FDB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		8EB7D8641B464F8B00BA8FDB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8EB7D8671B464F8B00BA8FDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -461,6 +469,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E4E57861B46EDD3007800AD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E4E57871B46EEC1007800AD /* MRLoginViewController.h */,
+				8E4E57881B46EEC1007800AD /* MRLoginViewController.m */,
+				8E4E578A1B46EEE5007800AD /* MROtherLoginViewController.h */,
+				8E4E578B1B46EEE5007800AD /* MROtherLoginViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		8E842DF11B4677700056AA6F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8E4E57861B46EDD3007800AD /* Controller */,
+				8E842DF41B4678720056AA6F /* Login.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		8EB7D8501B464F8B00BA8FDB = {
 			isa = PBXGroup;
 			children = (
@@ -485,11 +513,8 @@
 			isa = PBXGroup;
 			children = (
 				8EB7D8821B464FBC00BA8FDB /* Classes */,
-				8EB7D8601B464F8B00BA8FDB /* AppDelegate.h */,
-				8EB7D8611B464F8B00BA8FDB /* AppDelegate.m */,
 				8EB7D8631B464F8B00BA8FDB /* ViewController.h */,
 				8EB7D8641B464F8B00BA8FDB /* ViewController.m */,
-				8EB7D8661B464F8B00BA8FDB /* Main.storyboard */,
 				8EB7D8691B464F8B00BA8FDB /* Images.xcassets */,
 				8EB7D86B1B464F8B00BA8FDB /* LaunchScreen.xib */,
 				8EB7D85C1B464F8B00BA8FDB /* Supporting Files */,
@@ -527,6 +552,7 @@
 		8EB7D8821B464FBC00BA8FDB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8E842DF11B4677700056AA6F /* Login */,
 				8EB7D8861B46514D00BA8FDB /* Lib */,
 				8EB7D8851B46512900BA8FDB /* Others */,
 				8EB7D8841B46510B00BA8FDB /* Main */,
@@ -537,6 +563,7 @@
 		8EB7D8841B46510B00BA8FDB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8EB7D8661B464F8B00BA8FDB /* Main.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -544,6 +571,8 @@
 		8EB7D8851B46512900BA8FDB /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				8EB7D8601B464F8B00BA8FDB /* AppDelegate.h */,
+				8EB7D8611B464F8B00BA8FDB /* AppDelegate.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -1392,6 +1421,7 @@
 		8EB7D8511B464F8B00BA8FDB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MR;
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "李白";
 				TargetAttributes = {
@@ -1430,6 +1460,7 @@
 			files = (
 				8EB7D8BD1B4651C200BA8FDB /* build-libidn.sh in Resources */,
 				8EB7D8681B464F8B00BA8FDB /* Main.storyboard in Resources */,
+				8E842DF51B4678720056AA6F /* Login.storyboard in Resources */,
 				8EB7D86D1B464F8B00BA8FDB /* LaunchScreen.xib in Resources */,
 				8EB7D8B81B4651C200BA8FDB /* README.txt in Resources */,
 				8EB7D86A1B464F8B00BA8FDB /* Images.xcassets in Resources */,
@@ -1523,6 +1554,8 @@
 				8EB7DA311B4652F000BA8FDB /* XMPPMessage+XEP_0085.m in Sources */,
 				8EB7DA191B4652F000BA8FDB /* XMPPMUC.m in Sources */,
 				8EB7DA031B4652F000BA8FDB /* XMPPRosterMemoryStorage.m in Sources */,
+				8E4E57891B46EEC1007800AD /* MRLoginViewController.m in Sources */,
+				8E4E578C1B46EEE5007800AD /* MROtherLoginViewController.m in Sources */,
 				8EB7DA441B4652F000BA8FDB /* XMPPBlocking.m in Sources */,
 				8EB7DA2E1B4652F000BA8FDB /* XMPPMessage+XEP_0066.m in Sources */,
 				8EB7D9FF1B4652F000BA8FDB /* XMPPRoster.xcdatamodel in Sources */,
@@ -1606,6 +1639,7 @@
 				8EB7D8671B464F8B00BA8FDB /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		8EB7D86B1B464F8B00BA8FDB /* LaunchScreen.xib */ = {
@@ -1710,6 +1744,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = WeChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1733,6 +1768,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = WeChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
