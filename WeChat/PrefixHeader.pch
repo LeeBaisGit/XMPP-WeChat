@@ -13,6 +13,13 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import <UIKit/UIKit.h>
+#import "CategoryWF.h"
 
+
+#ifdef DEBUG   
+#define Mylog(...) NSLog(@"%s, %d\n%@ \n\n", __func__, __LINE__, [NSString stringWithFormat:__VA_ARGS__]);
+#else
+#define Mylog(...)
+#endif
 
 #endif

@@ -10,6 +10,18 @@
 
 @interface MRLoginViewController ()
 
+/**
+ *  账号
+ */
+@property (weak, nonatomic) IBOutlet UILabel *account;
+/**
+ *  密码
+ */
+@property (weak, nonatomic) IBOutlet UITextField *password;
+/**
+ *  登录按钮点击
+ */
+- (IBAction)loginBtnClick:(id)sender;
 @end
 
 @implementation MRLoginViewController
@@ -33,5 +45,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)loginBtnClick:(id)sender {
+    
+    
+}
+
+
 
 @end

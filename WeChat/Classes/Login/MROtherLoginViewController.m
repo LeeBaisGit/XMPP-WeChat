@@ -7,16 +7,42 @@
 //
 
 #import "MROtherLoginViewController.h"
+#import "AppDelegate.h"
 
 @interface MROtherLoginViewController ()
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightConstraint;
+@property (weak, nonatomic) IBOutlet UITextField *accountField;
+@property (weak, nonatomic) IBOutlet UITextField *pwdField;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+
+
+- (IBAction)loginBtnClick:(id)sender;
 
 @end
 
 @implementation MROtherLoginViewController
 
+
+#pragma mark - 系统方法
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // 判断是ipad还是iPhone 改变左右两边约束
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        self.leftConstraint.constant = 10;
+        self.rightConstraint.constant = 10;
+    }
+    
+    // 设置文本输入框的背景
+    self.accountField.background = [UIImage stretchedImageWithName:@"operationbox_text"];
+    self.pwdField.background = [UIImage stretchedImageWithName:@"operationbox_text"];
+    
+    [self.loginBtn setResizeN_BG:@"fts_green_btn" H_BG:@"fts_green_btn_HL"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +60,30 @@
 }
 */
 
+
+
+#pragma mark - 控制器器内部方法
+- (IBAction)loginBtnClick:(id)sender {
+    // 获取账户名 和 密码
+    NSString *account = self.accountField.text;
+    NSString *pwd = self.pwdField.text;
+    if (account != nil  && account.length > 0 && pwd != nil && pwd.length > 0) {
+        // 保存 账户名和密码到沙盒
+       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        NSLog(@"%@", defaults);
+        NSLog(@"%@", [NSSearchPathForDirectoriesInDomains(NSPreferencePanesDirectory, NSUserDomainMask, YES) lastObject]);
+        
+        [defaults setValue:account forKey:@"account"];
+        [defaults setValue:pwd forKey:@"pwd"];
+        
+        // 登录
+        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate xmppUserLogin];
+    }
+    
+    
+    
+    
+}
 @end

@@ -7,10 +7,30 @@
 //
 
 #import "AppDelegate.h"
+#import "XMPP.h"
+/*
+ * 在AppDelegate实现登录
+ 
+ 1. 初始化XMPPStream
+ 2. 连接到服务器[传一个JID]
+ 3. 连接到服务成功后，再发送密码授权
+ 4. 授权成功后，发送"在线" 消息
+ */
+@interface AppDelegate ()<XMPPStreamDelegate>
+{
+    XMPPStream *_xmppStream;
+}
 
-@interface AppDelegate ()
+- (void)setupXMPPStream;
+
+- (void)connectToHost;
+
+- (void)sendPwdToHost;
+
+- (void)sendOnlineToHost;
 
 @end
+
 
 @implementation AppDelegate
 
@@ -41,5 +61,132 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - 私有方法
+- (void)setupXMPPStream
+{
+    // 创建XMMP流
+    _xmppStream = [[XMPPStream alloc] init];
+    
+    // 设置代理
+    [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+    
+}
+- (void)connectToHost
+{
+    Mylog(@"开始连接到主机");
+    // 判断是否存在XMPP流
+    if (_xmppStream == nil) {
+        [self setupXMPPStream];
+    }
+    
+    // 从沙盒中获取用户名
+    NSString *account = [[NSUserDefaults standardUserDefaults] valueForKey:@"account"];
+    
+    // 设置JID
+    XMPPJID *myJID = [XMPPJID jidWithUser:account domain:@"libai.local" resource:@"iphone"];
+    _xmppStream.myJID = myJID;
+    
+    // 设置服务器域名 也可以是IP
+    _xmppStream.hostName = @"libai.local";
+    // 设置主机端口
+    _xmppStream.hostPort = 5222;
+    
+    // 连接主机
+    NSError *error = nil;
+    if (![_xmppStream connectWithTimeout:-1 error:&error]) {
+        Mylog(@"%@", error);
+    }
+}
+- (void)sendPwdToHost
+{
+    Mylog(@"发送密码进行授权");
+    
+    // 从沙盒中获取密码
+    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"pwd"];
+    
+    NSError *error = nil;
+    if (![_xmppStream authenticateWithPassword:pwd error:&error]) {
+        Mylog(@"%@", error);
+        
+    }
+    
+}
+- (void)sendOnlineToHost
+{
+    Mylog(@"发送'在线'消息");
+    XMPPPresence *presence = [XMPPPresence presence];
+    
+    [_xmppStream sendElement:presence];
+    
+}
+
+#pragma mark - 代理方法 XMPPStreamDelegate
+/**
+ *  连接到主机时调用
+ *
+ *  @param sender
+ */
+- (void)xmppStreamDidConnect:(XMPPStream *)sender
+{
+    [self sendPwdToHost];
+    
+}
+/**
+ *  与主机断开连接时调用
+ *
+ *  @param sender
+ *  @param error
+ */
+- (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error
+{
+    Mylog(@"%@", error);
+}
+/**
+ *  获取授权时调用
+ *
+ *  @param sender
+ */
+- (void)xmppStreamDidAuthenticate:(XMPPStream *)sender
+{
+    Mylog(@"授权成功");
+    // 发送在线消息
+    [self sendOnlineToHost];
+}
+/**
+ *  获取授权失败时调用
+ *
+ *  @param sender
+ *  @param error
+ */
+- (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(DDXMLElement *)error
+{
+    Mylog(@"%@", error);
+}
+
+#pragma mark - 公有方法 提供给外界访问
+/**
+ *  登录
+ */
+- (void)xmppUserLogin
+{
+    [self connectToHost];
+}
+
+/**
+ *  退出登录
+ */
+- (void)xmppUserLogout;
+{
+    Mylog(@"发送离线消息");
+    // 发送离线消息
+    XMPPPresence *offline = [XMPPPresence presenceWithType:@"unavailable"];
+    [_xmppStream sendElement:offline];
+    
+    // 与服务器断开连接
+    [_xmppStream disconnect];
+    
+}
+
 
 @end
