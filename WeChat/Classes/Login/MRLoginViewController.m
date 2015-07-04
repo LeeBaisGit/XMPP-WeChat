@@ -51,6 +51,9 @@
     
 }
 
-
+- (void)dealloc
+{
+    Mylog(@"----");
+}
 
 @end

@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "XMPP.h"
+#import "XMPPFramework.h"
+#import "MRNavgationViewController.h"
+
 /*
  * 在AppDelegate实现登录
  
@@ -19,6 +21,7 @@
 @interface AppDelegate ()<XMPPStreamDelegate>
 {
     XMPPStream *_xmppStream;
+    XMPPResultBlock _resultBlock;
 }
 
 - (void)setupXMPPStream;
@@ -37,6 +40,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // 设置导航栏主题
+    [MRNavgationViewController setupNavTheme];
+    
     return YES;
 }
 
@@ -141,6 +148,10 @@
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error
 {
     Mylog(@"%@", error);
+    
+    if (error && _resultBlock) {
+        _resultBlock(XMPPResultTypeNetError);
+    }
 }
 /**
  *  获取授权时调用
@@ -152,6 +163,11 @@
     Mylog(@"授权成功");
     // 发送在线消息
     [self sendOnlineToHost];
+    
+    // 回调控制器登录成功
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeSuccess);
+    }
 }
 /**
  *  获取授权失败时调用
@@ -162,14 +178,29 @@
 - (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(DDXMLElement *)error
 {
     Mylog(@"%@", error);
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeFailure);
+    }
 }
 
 #pragma mark - 公有方法 提供给外界访问
 /**
  *  登录
  */
-- (void)xmppUserLogin
+- (void)xmppUserLogin:(XMPPResultBlock)resultBlock
 {
+    // 先把block保存起来 以便其他地方拿到
+    _resultBlock = resultBlock;
+    
+    // 判断是否有连接存在 如果有则断开
+//    if (_xmppStream.isConnected) {
+//        [_xmppStream disconnect];
+//    }
+    // 或者 不管有没有都断开上一次的连接
+    [_xmppStream disconnect];
+    
+    
+    // 连接主机 成功后 发送密码授权
     [self connectToHost];
 }
 
@@ -185,6 +216,11 @@
     
     // 与服务器断开连接
     [_xmppStream disconnect];
+    
+    // 跳转到登陆的storyboard
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+    
+    self.window.rootViewController = storyBoard.instantiateInitialViewController;
     
 }
 

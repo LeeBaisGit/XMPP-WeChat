@@ -13,9 +13,14 @@
 		8E2FF02D1B47BE2D003EA3C7 /* UIStoryboard+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FF0251B47BE2D003EA3C7 /* UIStoryboard+WF.m */; };
 		8E2FF02E1B47BE2D003EA3C7 /* UITextField+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FF0271B47BE2D003EA3C7 /* UITextField+WF.m */; };
 		8E2FF02F1B47BE2D003EA3C7 /* UIView+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FF0291B47BE2D003EA3C7 /* UIView+WF.m */; };
+		8E2FF0371B47DB47003EA3C7 /* MBProgressHUD+HM.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FF0331B47DB47003EA3C7 /* MBProgressHUD+HM.m */; };
+		8E2FF0381B47DB47003EA3C7 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8E2FF0341B47DB47003EA3C7 /* MBProgressHUD.bundle */; };
+		8E2FF0391B47DB47003EA3C7 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FF0361B47DB47003EA3C7 /* MBProgressHUD.m */; };
+		8E2FF03D1B47E2FA003EA3C7 /* MRNavgationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FF03C1B47E2FA003EA3C7 /* MRNavgationViewController.m */; };
 		8E4E57891B46EEC1007800AD /* MRLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E57881B46EEC1007800AD /* MRLoginViewController.m */; };
 		8E4E578C1B46EEE5007800AD /* MROtherLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E578B1B46EEE5007800AD /* MROtherLoginViewController.m */; };
 		8E842DF51B4678720056AA6F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E842DF41B4678720056AA6F /* Login.storyboard */; };
+		8E8FB4A31B484E5400BE7194 /* MRMeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8FB4A21B484E5400BE7194 /* MRMeTableViewController.m */; };
 		8EB7D85F1B464F8B00BA8FDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7D85E1B464F8B00BA8FDB /* main.m */; };
 		8EB7D8621B464F8B00BA8FDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7D8611B464F8B00BA8FDB /* AppDelegate.m */; };
 		8EB7D8651B464F8B00BA8FDB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7D8641B464F8B00BA8FDB /* ViewController.m */; };
@@ -179,11 +184,20 @@
 		8E2FF0271B47BE2D003EA3C7 /* UITextField+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+WF.m"; sourceTree = "<group>"; };
 		8E2FF0281B47BE2D003EA3C7 /* UIView+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WF.h"; sourceTree = "<group>"; };
 		8E2FF0291B47BE2D003EA3C7 /* UIView+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WF.m"; sourceTree = "<group>"; };
+		8E2FF0321B47DB47003EA3C7 /* MBProgressHUD+HM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HM.h"; sourceTree = "<group>"; };
+		8E2FF0331B47DB47003EA3C7 /* MBProgressHUD+HM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HM.m"; sourceTree = "<group>"; };
+		8E2FF0341B47DB47003EA3C7 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		8E2FF0351B47DB47003EA3C7 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		8E2FF0361B47DB47003EA3C7 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		8E2FF03B1B47E2FA003EA3C7 /* MRNavgationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRNavgationViewController.h; sourceTree = "<group>"; };
+		8E2FF03C1B47E2FA003EA3C7 /* MRNavgationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRNavgationViewController.m; sourceTree = "<group>"; };
 		8E4E57871B46EEC1007800AD /* MRLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRLoginViewController.h; sourceTree = "<group>"; };
 		8E4E57881B46EEC1007800AD /* MRLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRLoginViewController.m; sourceTree = "<group>"; };
 		8E4E578A1B46EEE5007800AD /* MROtherLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MROtherLoginViewController.h; sourceTree = "<group>"; };
 		8E4E578B1B46EEE5007800AD /* MROtherLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MROtherLoginViewController.m; sourceTree = "<group>"; };
 		8E842DF41B4678720056AA6F /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		8E8FB4A11B484E5400BE7194 /* MRMeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRMeTableViewController.h; sourceTree = "<group>"; };
+		8E8FB4A21B484E5400BE7194 /* MRMeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRMeTableViewController.m; sourceTree = "<group>"; };
 		8EB7D8591B464F8B00BA8FDB /* WeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB7D85D1B464F8B00BA8FDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EB7D85E1B464F8B00BA8FDB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -508,6 +522,36 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		8E2FF0301B47C6AE003EA3C7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E8FB4A11B484E5400BE7194 /* MRMeTableViewController.h */,
+				8E8FB4A21B484E5400BE7194 /* MRMeTableViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		8E2FF0311B47DB47003EA3C7 /* MBProgessHUD */ = {
+			isa = PBXGroup;
+			children = (
+				8E2FF0321B47DB47003EA3C7 /* MBProgressHUD+HM.h */,
+				8E2FF0331B47DB47003EA3C7 /* MBProgressHUD+HM.m */,
+				8E2FF0341B47DB47003EA3C7 /* MBProgressHUD.bundle */,
+				8E2FF0351B47DB47003EA3C7 /* MBProgressHUD.h */,
+				8E2FF0361B47DB47003EA3C7 /* MBProgressHUD.m */,
+			);
+			path = MBProgessHUD;
+			sourceTree = "<group>";
+		};
+		8E2FF03A1B47E2B9003EA3C7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8E2FF03B1B47E2FA003EA3C7 /* MRNavgationViewController.h */,
+				8E2FF03C1B47E2FA003EA3C7 /* MRNavgationViewController.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		8E4E57861B46EDD3007800AD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,6 +636,7 @@
 		8EB7D8821B464FBC00BA8FDB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8E2FF03A1B47E2B9003EA3C7 /* Common */,
 				8E842DF11B4677700056AA6F /* Login(登录) */,
 				8EB7D8861B46514D00BA8FDB /* Lib */,
 				8EB7D8851B46512900BA8FDB /* Others */,
@@ -603,6 +648,7 @@
 		8EB7D8841B46510B00BA8FDB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8E2FF0301B47C6AE003EA3C7 /* Controller */,
 				8EB7D8661B464F8B00BA8FDB /* Main.storyboard */,
 			);
 			path = Main;
@@ -620,6 +666,7 @@
 		8EB7D8861B46514D00BA8FDB /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				8E2FF0311B47DB47003EA3C7 /* MBProgessHUD */,
 				8E2FF01C1B47BE2D003EA3C7 /* Category */,
 				8EB7D8871B46517F00BA8FDB /* XMPP */,
 			);
@@ -1505,6 +1552,7 @@
 				8EB7D86D1B464F8B00BA8FDB /* LaunchScreen.xib in Resources */,
 				8EB7D8B81B4651C200BA8FDB /* README.txt in Resources */,
 				8EB7D86A1B464F8B00BA8FDB /* Images.xcassets in Resources */,
+				8E2FF0381B47DB47003EA3C7 /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1547,6 +1595,7 @@
 				8EB7DA211B4652F000BA8FDB /* XMPPvCardTempAdr.m in Sources */,
 				8EB7D8B91B4651C200BA8FDB /* NSString+DDXML.m in Sources */,
 				8EB7DA501B4652F000BA8FDB /* NSXMLElement+XEP_0335.m in Sources */,
+				8E2FF0391B47DB47003EA3C7 /* MBProgressHUD.m in Sources */,
 				8EB7DA3E1B4652F000BA8FDB /* XMPPMessageArchiving.m in Sources */,
 				8EB7DA1A1B4652F000BA8FDB /* XMPPRoom.m in Sources */,
 				8EB7D9F21B4652F000BA8FDB /* XMPPJID.m in Sources */,
@@ -1637,16 +1686,19 @@
 				8E2FF02B1B47BE2D003EA3C7 /* UIImage+WF.m in Sources */,
 				8EB7D8621B464F8B00BA8FDB /* AppDelegate.m in Sources */,
 				8EB7D8B71B4651C200BA8FDB /* DispatchQueueLogFormatter.m in Sources */,
+				8E8FB4A31B484E5400BE7194 /* MRMeTableViewController.m in Sources */,
 				8EB7DA051B4652F000BA8FDB /* XMPPRoster.m in Sources */,
 				8EB7DA0F1B4652F000BA8FDB /* XMPPRoomMessageCoreDataStorageObject.m in Sources */,
 				8EB7DA231B4652F000BA8FDB /* XMPPvCardTempBase.m in Sources */,
 				8EB7DA011B4652F000BA8FDB /* XMPPUserCoreDataStorageObject.m in Sources */,
 				8EB7D85F1B464F8B00BA8FDB /* main.m in Sources */,
 				8EB7DA091B4652F000BA8FDB /* XMPPJabberRPCModule.m in Sources */,
+				8E2FF0371B47DB47003EA3C7 /* MBProgressHUD+HM.m in Sources */,
 				8EB7D8B11B4651C200BA8FDB /* DDAbstractDatabaseLogger.m in Sources */,
 				8EB7DA2D1B4652F000BA8FDB /* XMPPIQ+XEP_0066.m in Sources */,
 				8EB7DA2B1B4652F000BA8FDB /* XMPPPubSub.m in Sources */,
 				8EB7D9F71B4652F000BA8FDB /* XMPPStream.m in Sources */,
+				8E2FF03D1B47E2FA003EA3C7 /* MRNavgationViewController.m in Sources */,
 				8EB7D9F91B4652F000BA8FDB /* XMPPCoreDataStorage.m in Sources */,
 				8EB7DA161B4652F000BA8FDB /* XMPPRoomMessageMemoryStorageObject.m in Sources */,
 				8EB7DA131B4652F000BA8FDB /* XMPPRoomMessageHybridCoreDataStorageObject.m in Sources */,
