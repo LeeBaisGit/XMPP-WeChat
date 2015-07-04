@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MRBaseLoginViewController.h"
 
-@interface MROtherLoginViewController : UIViewController
+@interface MROtherLoginViewController : MRBaseLoginViewController
 
 @end

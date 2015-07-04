@@ -61,6 +61,16 @@
 
 - (IBAction)loginBtnClick:(id)sender {
     
+    NSString *account = self.accountLabel.text;
+    NSString *pwd = self.pwdField.text;
+    if (account != nil  && account.length > 0 && pwd != nil && pwd.length > 0) {
+        // 给单例userInfo赋值
+        MRUserInfo *userInfo = [MRUserInfo sharedMRUserInfo];
+        userInfo.account = account;
+        userInfo.pwd = pwd;
+        
+        [super login];
+    }
     
 }
 

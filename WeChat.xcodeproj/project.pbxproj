@@ -159,6 +159,7 @@
 		8EB7DA561B4652F000BA8FDB /* XMPPStringPrep.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7D9E51B4652F000BA8FDB /* XMPPStringPrep.m */; };
 		8EB7DA581B46532900BA8FDB /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB7DA571B46532900BA8FDB /* libresolv.dylib */; };
 		8ECE2BE41B486BA600979FA7 /* MRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2BE31B486BA600979FA7 /* MRUserInfo.m */; };
+		8ECE2BE71B48791700979FA7 /* MRBaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2BE61B48791700979FA7 /* MRBaseLoginViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -483,6 +484,8 @@
 		8ECE2BE11B486B8000979FA7 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		8ECE2BE21B486BA600979FA7 /* MRUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRUserInfo.h; sourceTree = "<group>"; };
 		8ECE2BE31B486BA600979FA7 /* MRUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRUserInfo.m; sourceTree = "<group>"; };
+		8ECE2BE51B48791700979FA7 /* MRBaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBaseLoginViewController.h; sourceTree = "<group>"; };
+		8ECE2BE61B48791700979FA7 /* MRBaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBaseLoginViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -564,6 +567,8 @@
 				8E4E57881B46EEC1007800AD /* MRLoginViewController.m */,
 				8E4E578A1B46EEE5007800AD /* MROtherLoginViewController.h */,
 				8E4E578B1B46EEE5007800AD /* MROtherLoginViewController.m */,
+				8ECE2BE51B48791700979FA7 /* MRBaseLoginViewController.h */,
+				8ECE2BE61B48791700979FA7 /* MRBaseLoginViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1675,6 +1680,7 @@
 				8EB7DA3D1B4652F000BA8FDB /* XMPPMessageArchivingCoreDataStorage.m in Sources */,
 				8EB7D9EE1B4652F000BA8FDB /* NSNumber+XMPP.m in Sources */,
 				8EB7DA311B4652F000BA8FDB /* XMPPMessage+XEP_0085.m in Sources */,
+				8ECE2BE71B48791700979FA7 /* MRBaseLoginViewController.m in Sources */,
 				8EB7DA191B4652F000BA8FDB /* XMPPMUC.m in Sources */,
 				8E2FF02A1B47BE2D003EA3C7 /* UIButton+WF.m in Sources */,
 				8EB7DA031B4652F000BA8FDB /* XMPPRosterMemoryStorage.m in Sources */,
