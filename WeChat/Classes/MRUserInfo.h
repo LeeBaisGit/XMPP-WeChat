@@ -30,5 +30,11 @@ singleton_interface(MRUserInfo)
  */
 - (void)loadFromSanbox;
 
+/**
+ *  登录状态 YES 登录/NO 注销
+ */
+@property(nonatomic,assign) BOOL loginStatus;
+
+
 
 @end

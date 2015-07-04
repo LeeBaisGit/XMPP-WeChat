@@ -47,6 +47,15 @@
     // 从沙盒中获取用户信息
     [[MRUserInfo sharedMRUserInfo] loadFromSanbox];
     
+    // 判断用户登录状态 如果登录过没有注销 直接进入主页面
+    BOOL loginStatus = [MRUserInfo sharedMRUserInfo].loginStatus;
+    if (loginStatus) { // 登录过未注销
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        self.window.rootViewController = storyboard.instantiateInitialViewController;
+        // 自动连接服务器
+        [self xmppUserLogin:nil];
+    }
+    
     return YES;
 }
 
@@ -225,7 +234,8 @@
     
     self.window.rootViewController = storyBoard.instantiateInitialViewController;
     
-    
+    // 注销时设置登录状态为NO
+    [MRUserInfo sharedMRUserInfo].loginStatus = NO;
     
 }
 

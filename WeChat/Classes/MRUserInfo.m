@@ -10,6 +10,7 @@
 
 #define ACCOUNTKEY @"account"
 #define PWDKEY @"pwd"
+#define LOGINSTATUSKEY @"loginStatus"
 
 @implementation MRUserInfo
 
@@ -20,6 +21,7 @@ singleton_implementation(MRUserInfo)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.account forKey:ACCOUNTKEY];
     [defaults setObject:self.pwd forKey:PWDKEY];
+    [defaults setBool:self.loginStatus forKey:LOGINSTATUSKEY];
 }
 
 - (void)loadFromSanbox
@@ -27,6 +29,7 @@ singleton_implementation(MRUserInfo)
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.account = [defaults objectForKey:ACCOUNTKEY];
     self.pwd = [defaults objectForKey:PWDKEY];
+    self.loginStatus = [defaults boolForKey:LOGINSTATUSKEY];
 }
 
 @end

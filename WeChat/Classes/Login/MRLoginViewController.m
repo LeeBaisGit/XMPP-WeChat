@@ -38,6 +38,8 @@
     
     // 设置文本输入框的背景
     self.pwdField.background = [UIImage stretchedImageWithName:@"operationbox_text"];
+    // 设置文本输入框左边的图片
+    [self.pwdField addLeftViewWithImage:@"Card_Lock"];
     
     [self.loginBtn setResizeN_BG:@"fts_green_btn" H_BG:@"fts_green_btn_HL"];
     

@@ -58,18 +58,18 @@
 {
     // 回到主线程刷新UI    所有的UI刷新都应该在UI中操作
     dispatch_async(dispatch_get_main_queue(), ^{
-        
         // 隐藏提示遮盖
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
+        [MBProgressHUD hideHUDForView:self.view];
         switch (type) {
             case XMPPResultTypeSuccess:
                 Mylog(@"登录成功");
                 [self enterMainPage];
+                // 登录成功时设置登录状态为YES
+                [MRUserInfo sharedMRUserInfo].loginStatus = YES;
                 // 保存账号和密码到沙盒
                 [[MRUserInfo sharedMRUserInfo] saveToSanbox];
-                break;
                 
+                break;
             case XMPPResultTypeFailure:
                 Mylog(@"登录失败");
                 [MBProgressHUD showError:@"用户名或密码错误" toView:self.view];
