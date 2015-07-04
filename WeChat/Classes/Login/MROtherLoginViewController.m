@@ -78,11 +78,14 @@
     NSString *pwd = self.pwdField.text;
     if (account != nil  && account.length > 0 && pwd != nil && pwd.length > 0) {
         // 保存 账户名和密码到沙盒
-       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        
-        [defaults setValue:account forKey:@"account"];
-        [defaults setValue:pwd forKey:@"pwd"];
-        [defaults synchronize];
+//       NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        
+//        [defaults setValue:account forKey:@"account"];
+//        [defaults setValue:pwd forKey:@"pwd"];
+//        [defaults synchronize];
+        MRUserInfo *userInfo = [MRUserInfo sharedMRUserInfo];
+        userInfo.account = account;
+        userInfo.pwd = pwd;
         
         [self.view endEditing:YES];
         
@@ -116,6 +119,8 @@
             case XMPPResultTypeSuccess:
                 Mylog(@"登录成功");
                 [self enterMainPage];
+                // 保存账号和密码到沙盒
+                [[MRUserInfo sharedMRUserInfo] saveToSanbox];
                 break;
     
             case XMPPResultTypeFailure:

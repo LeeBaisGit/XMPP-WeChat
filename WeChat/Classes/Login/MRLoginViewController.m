@@ -13,11 +13,15 @@
 /**
  *  账号
  */
-@property (weak, nonatomic) IBOutlet UILabel *account;
+@property (weak, nonatomic) IBOutlet UILabel *accountLabel;
+
 /**
  *  密码
  */
-@property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UITextField *pwdField;
+
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+
 /**
  *  登录按钮点击
  */
@@ -29,6 +33,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.accountLabel.text = [MRUserInfo sharedMRUserInfo].account;
+    
+    // 设置文本输入框的背景
+    self.pwdField.background = [UIImage stretchedImageWithName:@"operationbox_text"];
+    
+    [self.loginBtn setResizeN_BG:@"fts_green_btn" H_BG:@"fts_green_btn_HL"];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -44,6 +44,9 @@
     // 设置导航栏主题
     [MRNavgationViewController setupNavTheme];
     
+    // 从沙盒中获取用户信息
+    [[MRUserInfo sharedMRUserInfo] loadFromSanbox];
+    
     return YES;
 }
 
@@ -87,9 +90,9 @@
         [self setupXMPPStream];
     }
     
-    // 从沙盒中获取用户名
-    NSString *account = [[NSUserDefaults standardUserDefaults] valueForKey:@"account"];
+    MRUserInfo *userInfo = [MRUserInfo sharedMRUserInfo];
     
+    NSString *account = userInfo.account;
     // 设置JID
     XMPPJID *myJID = [XMPPJID jidWithUser:account domain:@"libai.local" resource:@"iphone"];
     _xmppStream.myJID = myJID;
@@ -110,7 +113,7 @@
     Mylog(@"发送密码进行授权");
     
     // 从沙盒中获取密码
-    NSString *pwd = [[NSUserDefaults standardUserDefaults] valueForKey:@"pwd"];
+    NSString *pwd = [MRUserInfo sharedMRUserInfo].pwd;
     
     NSError *error = nil;
     if (![_xmppStream authenticateWithPassword:pwd error:&error]) {
@@ -221,6 +224,8 @@
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
     
     self.window.rootViewController = storyBoard.instantiateInitialViewController;
+    
+    
     
 }
 

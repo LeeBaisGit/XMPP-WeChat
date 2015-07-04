@@ -158,6 +158,7 @@
 		8EB7DA551B4652F000BA8FDB /* XMPPSRVResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7D9E31B4652F000BA8FDB /* XMPPSRVResolver.m */; };
 		8EB7DA561B4652F000BA8FDB /* XMPPStringPrep.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7D9E51B4652F000BA8FDB /* XMPPStringPrep.m */; };
 		8EB7DA581B46532900BA8FDB /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB7DA571B46532900BA8FDB /* libresolv.dylib */; };
+		8ECE2BE41B486BA600979FA7 /* MRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2BE31B486BA600979FA7 /* MRUserInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -479,6 +480,9 @@
 		8EB7DA571B46532900BA8FDB /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		8EB7DA591B46535600BA8FDB /* XMPPFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPFramework.h; sourceTree = "<group>"; };
 		8EB7DA5A1B46539000BA8FDB /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		8ECE2BE11B486B8000979FA7 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		8ECE2BE21B486BA600979FA7 /* MRUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRUserInfo.h; sourceTree = "<group>"; };
+		8ECE2BE31B486BA600979FA7 /* MRUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRUserInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -546,8 +550,9 @@
 		8E2FF03A1B47E2B9003EA3C7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				8E2FF03B1B47E2FA003EA3C7 /* MRNavgationViewController.h */,
-				8E2FF03C1B47E2FA003EA3C7 /* MRNavgationViewController.m */,
+				8ECE2BE01B486B6900979FA7 /* Singleton */,
+				8ECE2BDF1B486B4B00979FA7 /* Model */,
+				8ECE2BDE1B486B3000979FA7 /* Controller */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -1465,6 +1470,32 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		8ECE2BDE1B486B3000979FA7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8E2FF03B1B47E2FA003EA3C7 /* MRNavgationViewController.h */,
+				8E2FF03C1B47E2FA003EA3C7 /* MRNavgationViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		8ECE2BDF1B486B4B00979FA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8ECE2BE21B486BA600979FA7 /* MRUserInfo.h */,
+				8ECE2BE31B486BA600979FA7 /* MRUserInfo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8ECE2BE01B486B6900979FA7 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				8ECE2BE11B486B8000979FA7 /* Singleton.h */,
+			);
+			name = Singleton;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1658,6 +1689,7 @@
 				8EB7DA3F1B4652F000BA8FDB /* XMPPvCardAvatarModule.m in Sources */,
 				8EB7D9FA1B4652F000BA8FDB /* XMPPGoogleSharedStatus.m in Sources */,
 				8EB7D9FC1B4652F000BA8FDB /* XMPPReconnect.m in Sources */,
+				8ECE2BE41B486BA600979FA7 /* MRUserInfo.m in Sources */,
 				8EB7DA301B4652F000BA8FDB /* XMPPDateTimeProfiles.m in Sources */,
 				8EB7DA391B4652F000BA8FDB /* XMPPCapabilities.m in Sources */,
 				8EB7D9EF1B4652F000BA8FDB /* NSXMLElement+XMPP.m in Sources */,
