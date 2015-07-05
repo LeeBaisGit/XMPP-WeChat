@@ -101,9 +101,8 @@
 */
 #pragma mark - 控制器内部方法
 - (IBAction)logoutBtnClick:(id)sender {
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
     
-    [appDelegate xmppUserLogout];
+    [[MRXMPPTool sharedMRXMPPTool] xmppUserLogout];
     
 }
 @end

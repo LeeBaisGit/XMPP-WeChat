@@ -92,11 +92,11 @@
     [MBProgressHUD showMessage:@"注册中，请稍后..." toView:self.view];
     
     // 用户注册
-    AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    MRXMPPTool *xmppTool = [MRXMPPTool sharedMRXMPPTool];
     // 设置为注册类型
-    appDelegate.registerUser = YES;
+    xmppTool.registerUser = YES;
     __weak typeof(self) selfVc = self;
-    [appDelegate xmppUserRegister:^(XMPPResultType type) {
+    [xmppTool xmppUserRegister:^(XMPPResultType type) {
         [selfVc handleWithResutType:type];
     }];
 }

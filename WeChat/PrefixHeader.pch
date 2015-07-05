@@ -16,6 +16,8 @@
 #import "CategoryWF.h"
 #import "MRUserInfo.h"
 #import "MBProgressHUD+HM.h"
+#import "MRXMPPTool.h"
+
 
 #ifdef DEBUG   
 #define Mylog(...) NSLog(@"%s, %d\n%@ \n\n", __func__, __LINE__, [NSString stringWithFormat:__VA_ARGS__]);

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E2FD72E1B49AEB100CD40C5 /* MRXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FD72D1B49AEB100CD40C5 /* MRXMPPTool.m */; };
 		8E2FF02A1B47BE2D003EA3C7 /* UIButton+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FF01F1B47BE2D003EA3C7 /* UIButton+WF.m */; };
 		8E2FF02B1B47BE2D003EA3C7 /* UIImage+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FF0211B47BE2D003EA3C7 /* UIImage+WF.m */; };
 		8E2FF02C1B47BE2D003EA3C7 /* UIScreen+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FF0231B47BE2D003EA3C7 /* UIScreen+WF.m */; };
@@ -174,6 +175,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E2FD72C1B49AEB100CD40C5 /* MRXMPPTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRXMPPTool.h; sourceTree = "<group>"; };
+		8E2FD72D1B49AEB100CD40C5 /* MRXMPPTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRXMPPTool.m; sourceTree = "<group>"; };
 		8E2FF01D1B47BE2D003EA3C7 /* CategoryWF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryWF.h; sourceTree = "<group>"; };
 		8E2FF01E1B47BE2D003EA3C7 /* UIButton+WF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WF.h"; sourceTree = "<group>"; };
 		8E2FF01F1B47BE2D003EA3C7 /* UIButton+WF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WF.m"; sourceTree = "<group>"; };
@@ -557,7 +560,6 @@
 			isa = PBXGroup;
 			children = (
 				8ECE2BE01B486B6900979FA7 /* Singleton */,
-				8ECE2BDF1B486B4B00979FA7 /* Model */,
 				8ECE2BDE1B486B3000979FA7 /* Controller */,
 			);
 			name = Common;
@@ -1489,19 +1491,14 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		8ECE2BDF1B486B4B00979FA7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8ECE2BE21B486BA600979FA7 /* MRUserInfo.h */,
-				8ECE2BE31B486BA600979FA7 /* MRUserInfo.m */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		8ECE2BE01B486B6900979FA7 /* Singleton */ = {
 			isa = PBXGroup;
 			children = (
 				8ECE2BE11B486B8000979FA7 /* Singleton.h */,
+				8ECE2BE21B486BA600979FA7 /* MRUserInfo.h */,
+				8ECE2BE31B486BA600979FA7 /* MRUserInfo.m */,
+				8E2FD72C1B49AEB100CD40C5 /* MRXMPPTool.h */,
+				8E2FD72D1B49AEB100CD40C5 /* MRXMPPTool.m */,
 			);
 			name = Singleton;
 			sourceTree = "<group>";
@@ -1716,6 +1713,7 @@
 				8EB7D9EA1B4652F000BA8FDB /* XMPPPlainAuthentication.m in Sources */,
 				8EB7DA4F1B4652F000BA8FDB /* XMPPMessage+XEP_0333.m in Sources */,
 				8EB7D9ED1B4652F000BA8FDB /* NSData+XMPP.m in Sources */,
+				8E2FD72E1B49AEB100CD40C5 /* MRXMPPTool.m in Sources */,
 				8EB7DA221B4652F000BA8FDB /* XMPPvCardTempAdrTypes.m in Sources */,
 				8EB7D8BB1B4651C200BA8FDB /* DDXMLElement.m in Sources */,
 				8EB7DA201B4652F000BA8FDB /* XMPPvCardTemp.m in Sources */,

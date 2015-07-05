@@ -43,13 +43,13 @@
         [MBProgressHUD showMessage:@"正在登录中..." toView:self.view];
         
         // 登录
-        AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+        MRXMPPTool *xmppTool = [MRXMPPTool sharedMRXMPPTool];
     
         // 设置为登录类型
-        appDelegate.registerUser = NO;
+        xmppTool.registerUser = NO;
     
         __weak typeof(self) selfVc = self; // block中使用 先转为weak 防止循环引用
-        [appDelegate xmppUserLogin:^(XMPPResultType type) {
+        [xmppTool xmppUserLogin:^(XMPPResultType type) {
             [selfVc handleResultType:type];
         }];
     
