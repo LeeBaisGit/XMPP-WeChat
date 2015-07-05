@@ -160,6 +160,7 @@
 		8EB7DA581B46532900BA8FDB /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB7DA571B46532900BA8FDB /* libresolv.dylib */; };
 		8ECE2BE41B486BA600979FA7 /* MRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2BE31B486BA600979FA7 /* MRUserInfo.m */; };
 		8ECE2BE71B48791700979FA7 /* MRBaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2BE61B48791700979FA7 /* MRBaseLoginViewController.m */; };
+		8ECE2BEA1B48913900979FA7 /* MRRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2BE91B48913900979FA7 /* MRRegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -486,6 +487,8 @@
 		8ECE2BE31B486BA600979FA7 /* MRUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRUserInfo.m; sourceTree = "<group>"; };
 		8ECE2BE51B48791700979FA7 /* MRBaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRBaseLoginViewController.h; sourceTree = "<group>"; };
 		8ECE2BE61B48791700979FA7 /* MRBaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRBaseLoginViewController.m; sourceTree = "<group>"; };
+		8ECE2BE81B48913800979FA7 /* MRRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRRegisterViewController.h; sourceTree = "<group>"; };
+		8ECE2BE91B48913900979FA7 /* MRRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRRegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -569,6 +572,8 @@
 				8E4E578B1B46EEE5007800AD /* MROtherLoginViewController.m */,
 				8ECE2BE51B48791700979FA7 /* MRBaseLoginViewController.h */,
 				8ECE2BE61B48791700979FA7 /* MRBaseLoginViewController.m */,
+				8ECE2BE81B48913800979FA7 /* MRRegisterViewController.h */,
+				8ECE2BE91B48913900979FA7 /* MRRegisterViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1637,6 +1642,7 @@
 				8EB7D9F21B4652F000BA8FDB /* XMPPJID.m in Sources */,
 				8EB7D9F81B4652F000BA8FDB /* XMPPBandwidthMonitor.m in Sources */,
 				8EB7DA3B1B4652F000BA8FDB /* XMPPMessageArchiving_Contact_CoreDataObject.m in Sources */,
+				8ECE2BEA1B48913900979FA7 /* MRRegisterViewController.m in Sources */,
 				8EB7DA471B4652F000BA8FDB /* XMPPAutoTime.m in Sources */,
 				8EB7DA431B4652F000BA8FDB /* XMPPMessageDeliveryReceipts.m in Sources */,
 				8EB7DA4B1B4652F000BA8FDB /* XMPPAttentionModule.m in Sources */,

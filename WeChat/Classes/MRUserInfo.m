@@ -11,6 +11,8 @@
 #define ACCOUNTKEY @"account"
 #define PWDKEY @"pwd"
 #define LOGINSTATUSKEY @"loginStatus"
+#define REGISTERACCOUNTKEY @"registerAccount"
+#define REGISTERPWDKEY @"registerPwd"
 
 @implementation MRUserInfo
 
@@ -22,6 +24,9 @@ singleton_implementation(MRUserInfo)
     [defaults setObject:self.account forKey:ACCOUNTKEY];
     [defaults setObject:self.pwd forKey:PWDKEY];
     [defaults setBool:self.loginStatus forKey:LOGINSTATUSKEY];
+//    [defaults setObject:self.registerAccount forKey:REGISTERACCOUNTKEY];
+//    [defaults setObject:self.registerPwd forKey:REGISTERPWDKEY];
+    [defaults synchronize];
 }
 
 - (void)loadFromSanbox
@@ -30,6 +35,8 @@ singleton_implementation(MRUserInfo)
     self.account = [defaults objectForKey:ACCOUNTKEY];
     self.pwd = [defaults objectForKey:PWDKEY];
     self.loginStatus = [defaults boolForKey:LOGINSTATUSKEY];
+//    self.registerAccount = [defaults objectForKey:REGISTERACCOUNTKEY];
+//    self.registerPwd = [defaults objectForKey:REGISTERPWDKEY];
 }
 
 @end

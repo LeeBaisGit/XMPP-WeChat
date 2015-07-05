@@ -35,6 +35,13 @@ singleton_interface(MRUserInfo)
  */
 @property(nonatomic,assign) BOOL loginStatus;
 
-
+/**
+ *  注册账号
+ */
+@property(nonatomic,copy)NSString *registerAccount;
+/**
+ *  注册密码
+ */
+@property(nonatomic,copy)NSString *registerPwd;
 
 @end

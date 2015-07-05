@@ -28,7 +28,7 @@
 
 - (void)connectToHost;
 
-- (void)sendPwdToHost;
+- (void)authenticateWithPassword;
 
 - (void)sendOnlineToHost;
 
@@ -101,7 +101,13 @@
     
     MRUserInfo *userInfo = [MRUserInfo sharedMRUserInfo];
     
-    NSString *account = userInfo.account;
+    NSString *account = nil;
+    if (self.isRegisterUser) {
+        account = userInfo.registerAccount;
+    }else {
+        account = userInfo.account;
+    }
+    
     // 设置JID
     XMPPJID *myJID = [XMPPJID jidWithUser:account domain:@"libai.local" resource:@"iphone"];
     _xmppStream.myJID = myJID;
@@ -117,20 +123,21 @@
         Mylog(@"%@", error);
     }
 }
-- (void)sendPwdToHost
+- (void)authenticateWithPassword
 {
     Mylog(@"发送密码进行授权");
     
     // 从沙盒中获取密码
     NSString *pwd = [MRUserInfo sharedMRUserInfo].pwd;
-    
     NSError *error = nil;
-    if (![_xmppStream authenticateWithPassword:pwd error:&error]) {
-        Mylog(@"%@", error);
-        
-    }
+   
     
+        if (![_xmppStream authenticateWithPassword:pwd error:&error]) {
+            Mylog(@"%@", error);
+        }
 }
+
+
 - (void)sendOnlineToHost
 {
     Mylog(@"发送'在线'消息");
@@ -138,6 +145,18 @@
     
     [_xmppStream sendElement:presence];
     
+}
+
+- (void)registerWithPassword
+{
+    Mylog(@"发送密码进行注册");
+    // 从单例中获取注册密码
+    NSString *pwd = [MRUserInfo sharedMRUserInfo].registerPwd;
+    NSError *error = nil;
+    if (![_xmppStream registerWithPassword:pwd error:&error]) {
+        Mylog(@"%@", error);
+    }
+
 }
 
 #pragma mark - 代理方法 XMPPStreamDelegate
@@ -148,7 +167,14 @@
  */
 - (void)xmppStreamDidConnect:(XMPPStream *)sender
 {
-    [self sendPwdToHost];
+    // 连接成功时发送密码进行登录或注册
+    // 判读是注册还是登录
+    if([self isRegisterUser]){  // 注册
+        [self registerWithPassword];
+    }else { // 登录
+        [self authenticateWithPassword];
+    }
+    
     
 }
 /**
@@ -194,6 +220,28 @@
         _resultBlock(XMPPResultTypeFailure);
     }
 }
+/**
+ *  注册成功时调用
+ *
+ *  @param sender
+ */
+- (void)xmppStreamDidRegister:(XMPPStream *)sender
+{
+    Mylog(@"注册成功");
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeRegisterSuccess);
+    }
+}
+
+- (void)xmppStream:(XMPPStream *)sender didNotRegister:(DDXMLElement *)error
+{
+    NSLog(@"注册失败%@", error);
+    if (error && _resultBlock) {
+        _resultBlock(XMPPResultTypeRegisterFailure);
+    }
+    
+}
+
 
 #pragma mark - 公有方法 提供给外界访问
 /**
@@ -237,6 +285,18 @@
     // 注销时设置登录状态为NO
     [MRUserInfo sharedMRUserInfo].loginStatus = NO;
     
+}
+
+- (void)xmppUserRegister:(XMPPResultBlock)resultBlock
+{
+    // 保存block
+    _resultBlock = resultBlock;
+    
+    // 不管有没有都断开上一次的连接
+    [_xmppStream disconnect];
+    
+    [self connectToHost];
+
 }
 
 

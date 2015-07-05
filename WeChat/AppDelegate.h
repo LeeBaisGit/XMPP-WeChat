@@ -11,7 +11,9 @@
 typedef enum {
     XMPPResultTypeSuccess, // 登录成功
     XMPPResultTypeFailure,  // 登录失败
-    XMPPResultTypeNetError
+    XMPPResultTypeNetError, // 网络错误
+    XMPPResultTypeRegisterSuccess, // 注册成功
+    XMPPResultTypeRegisterFailure // 注册失败
 }XMPPResultType;
 
 typedef void (^XMPPResultBlock)(XMPPResultType type); // XMPP请求结果的block
@@ -30,6 +32,19 @@ typedef void (^XMPPResultBlock)(XMPPResultType type); // XMPP请求结果的bloc
  *  退出登录
  */
 - (void)xmppUserLogout;
+
+/**
+ *  注册
+ *
+ *  @param resultBlock 回调的block
+ */
+- (void)xmppUserRegister:(XMPPResultBlock)resultBlock;
+/**
+ *  用于判断是否是用户注册 YES 注册/ NO 登录
+ */
+@property(nonatomic,assign,getter=isRegisterUser)BOOL registerUser;
+
+
 
 @end
 

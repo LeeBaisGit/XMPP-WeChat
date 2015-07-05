@@ -44,6 +44,10 @@
         
         // 登录
         AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    
+        // 设置为登录类型
+        appDelegate.registerUser = NO;
+    
         __weak typeof(self) selfVc = self; // block中使用 先转为weak 防止循环引用
         [appDelegate xmppUserLogin:^(XMPPResultType type) {
             [selfVc handleResultType:type];

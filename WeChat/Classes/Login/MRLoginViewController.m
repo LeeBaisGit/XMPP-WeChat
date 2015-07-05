@@ -7,8 +7,9 @@
 //
 
 #import "MRLoginViewController.h"
+#import "MRRegisterViewController.h"
 
-@interface MRLoginViewController ()
+@interface MRLoginViewController ()<MRRegisterViewControllerDelegate>
 
 /**
  *  账号
@@ -51,16 +52,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+- (void)dealloc
+{
+    Mylog(@"----");
+}
+
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    id destVc = segue.destinationViewController;
+    // 由于MRRegisterViewController是由导航控制器push出来的，所有segue的目标控制器是导航控制器，导航控制器的栈顶控制器才是MRRegisterViewController
+    if ([destVc isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *nav = destVc;
+        if ([nav.topViewController isKindOfClass:[MRRegisterViewController class]])
+        {
+            MRRegisterViewController *registerVc =(MRRegisterViewController *)nav.topViewController;
+            // 设置注册控制器的代理为登录控制器
+            registerVc.delegate = self;
+        }
+        
+    }
+    
 }
-*/
 
+#pragma mark - 私有方法
 - (IBAction)loginBtnClick:(id)sender {
     
     NSString *account = self.accountLabel.text;
@@ -76,9 +94,14 @@
     
 }
 
-- (void)dealloc
+#pragma mark -  MRRegisterViewControllerDelegate
+- (void)registerViewControllerDidFinshedRegistere
 {
-    Mylog(@"----");
+    // 完成注册后，设置登录控制器账号label显示注册的账号
+    self.accountLabel.text = [MRUserInfo sharedMRUserInfo].registerAccount;
+    // 提示
+    [MBProgressHUD showSuccess:@"请重新输入密码进行登录" toView:self.view];
 }
+
 
 @end
