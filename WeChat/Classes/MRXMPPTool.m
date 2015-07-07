@@ -7,8 +7,8 @@
 //
 
 #import "MRXMPPTool.h"
-#import "XMPPFramework.h"
-
+#import "DDLog.h"
+#import "DDTTYLogger.h"
 
 /*
  * 在AppDelegate实现登录
@@ -20,8 +20,17 @@
  */
 @interface MRXMPPTool ()
 {
+    // xmpp流
     XMPPStream *_xmppStream;
+    // 自定义回调block
     XMPPResultBlock _resultBlock;
+
+//    // 电子名片  外界需要访问 应定义成公有的属性变量
+//    XMPPvCardTempModule *_vCard;
+    // 电子名片的数据存储
+    XMPPvCardCoreDataStorage *_vCardStorage;
+    
+    XMPPvCardAvatarModule *_avatar;
 }
 
 - (void)setupXMPPStream;
@@ -42,11 +51,27 @@ singleton_implementation(MRXMPPTool)
 #pragma mark - 私有方法
 - (void)setupXMPPStream
 {
+    // 打开XMPP自带的系统日志
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    
     // 创建XMMP流
     _xmppStream = [[XMPPStream alloc] init];
     
     // 设置代理
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
+    
+#warning 每一个模块添加后都要激活
+    
+    // 添加电子名片模块
+    _vCardStorage = [XMPPvCardCoreDataStorage sharedInstance];
+    _vCard = [[XMPPvCardTempModule alloc] initWithvCardStorage:_vCardStorage];
+    // 激活电子名片模块
+    [_vCard activate:_xmppStream];
+    
+    // 添加头像模块
+    _avatar = [[XMPPvCardAvatarModule alloc] initWithvCardTempModule:_vCard];
+    
+    [_avatar activate:_xmppStream];
     
 }
 - (void)connectToHost
@@ -66,7 +91,8 @@ singleton_implementation(MRXMPPTool)
         account = userInfo.account;
     }
     
-    // 设置JID
+    // 设置登录用户JID
+    //resource 标识用户登录的客户端 iphone android
     XMPPJID *myJID = [XMPPJID jidWithUser:account domain:@"libai.local" resource:@"iphone"];
     _xmppStream.myJID = myJID;
     

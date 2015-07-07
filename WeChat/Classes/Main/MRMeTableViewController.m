@@ -8,11 +8,18 @@
 
 #import "MRMeTableViewController.h"
 #import "AppDelegate.h"
-
+#import "XMPPvCardTemp.h"
 
 @interface MRMeTableViewController ()
 
 - (IBAction)logoutBtnClick:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+
+@property (weak, nonatomic) IBOutlet UILabel *nikNameLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *accountLabel;
+
 @end
 
 @implementation MRMeTableViewController
@@ -25,6 +32,17 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    XMPPvCardTemp *myvCard = [[MRXMPPTool sharedMRXMPPTool] vCard].myvCardTemp;
+    if (myvCard.photo) {
+        UIImage *photo = [UIImage imageWithData:myvCard.photo];
+        self.iconView.image = photo;
+    }
+    
+    self.nikNameLabel.text = myvCard.nickname;
+    
+    self.accountLabel.text = [MRUserInfo sharedMRUserInfo].account;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,17 +52,17 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    return 0;
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

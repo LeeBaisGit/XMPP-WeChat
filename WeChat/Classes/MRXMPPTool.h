@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Singleton.h"
+#import "XMPPFramework.h"
 
 @interface MRXMPPTool : NSObject
 typedef enum {
@@ -42,6 +43,11 @@ singleton_interface(MRXMPPTool)
  *  用于判断是否是用户注册 YES 注册/ NO 登录
  */
 @property(nonatomic,assign,getter=isRegisterUser)BOOL registerUser;
+
+/**
+ *  电子名片
+ */
+@property(nonatomic,strong)XMPPvCardTempModule *vCard;
 
 
 @end
