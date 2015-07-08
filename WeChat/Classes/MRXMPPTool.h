@@ -55,4 +55,6 @@ singleton_interface(MRXMPPTool)
  */
 @property(nonatomic,strong)XMPPRoster *roster;
 
+@property(nonatomic,strong)XMPPRosterCoreDataStorage *rosterStorage;
+
 @end

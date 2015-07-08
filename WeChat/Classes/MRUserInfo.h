@@ -43,5 +43,9 @@ singleton_interface(MRUserInfo)
  *  注册密码
  */
 @property(nonatomic,copy)NSString *registerPwd;
+/**
+ *  当前登录用户的jid
+ */
+@property(nonatomic,copy)NSString *jid;
 
 @end

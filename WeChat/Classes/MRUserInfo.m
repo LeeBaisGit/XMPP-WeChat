@@ -14,6 +14,8 @@
 #define REGISTERACCOUNTKEY @"registerAccount"
 #define REGISTERPWDKEY @"registerPwd"
 
+static NSString *domain = @"libai.local";
+
 @implementation MRUserInfo
 
 singleton_implementation(MRUserInfo)
@@ -37,6 +39,11 @@ singleton_implementation(MRUserInfo)
     self.loginStatus = [defaults boolForKey:LOGINSTATUSKEY];
 //    self.registerAccount = [defaults objectForKey:REGISTERACCOUNTKEY];
 //    self.registerPwd = [defaults objectForKey:REGISTERPWDKEY];
+}
+
+- (NSString *)jid
+{
+    return [NSString stringWithFormat:@"%@@%@",self.account, domain];
 }
 
 @end

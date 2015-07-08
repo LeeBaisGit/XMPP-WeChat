@@ -37,7 +37,7 @@
     // 花名册
 //    XMPPRoster *_roster;
     // 花名册存储
-    XMPPRosterCoreDataStorage *_rosterStorage;
+//    XMPPRosterCoreDataStorage *_rosterStorage;
     
 }
 
@@ -302,10 +302,11 @@ singleton_implementation(MRXMPPTool)
 
 - (void)dealloc
 {
-    [self tearsDown];
+    [self tearDownXMPP];
 }
 
-- (void)tearsDown
+#pragma mark - 释放XMPPStream资源
+- (void)tearDownXMPP
 {
     // 移除代理
     [_xmppStream removeDelegate:self];
