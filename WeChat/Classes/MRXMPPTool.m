@@ -29,8 +29,16 @@
 //    XMPPvCardTempModule *_vCard;
     // 电子名片的数据存储
     XMPPvCardCoreDataStorage *_vCardStorage;
-    
+    // 头像模块
     XMPPvCardAvatarModule *_avatar;
+    // 重连接模块
+    XMPPReconnect *_reconnect;
+
+    // 花名册
+//    XMPPRoster *_roster;
+    // 花名册存储
+    XMPPRosterCoreDataStorage *_rosterStorage;
+    
 }
 
 - (void)setupXMPPStream;
@@ -72,6 +80,15 @@ singleton_implementation(MRXMPPTool)
     _avatar = [[XMPPvCardAvatarModule alloc] initWithvCardTempModule:_vCard];
     
     [_avatar activate:_xmppStream];
+    
+    // 添加重连接模块
+    _reconnect = [[XMPPReconnect alloc] init];
+    [_reconnect activate:_xmppStream];
+ 
+    // 添加花名册模块
+    _rosterStorage = [XMPPRosterCoreDataStorage sharedInstance];
+    _roster = [[XMPPRoster alloc] initWithRosterStorage:_rosterStorage];
+    [_roster activate:_xmppStream];
     
 }
 - (void)connectToHost
@@ -281,6 +298,33 @@ singleton_implementation(MRXMPPTool)
     
     [self connectToHost];
     
+}
+
+- (void)dealloc
+{
+    [self tearsDown];
+}
+
+- (void)tearsDown
+{
+    // 移除代理
+    [_xmppStream removeDelegate:self];
+    
+    // 停止模块
+    [_vCard deactivate];
+    [_avatar deactivate];
+    [_reconnect deactivate];
+    [_roster deactivate];
+    
+    // 关闭连接
+    [_xmppStream disconnect];
+    
+    // 清空资源
+    _vCard = nil;
+    _avatar = nil;
+    _reconnect = nil;
+    _roster = nil;
+    _xmppStream = nil;
 }
 
 

@@ -10,6 +10,7 @@
 #import "Singleton.h"
 #import "XMPPFramework.h"
 
+
 @interface MRXMPPTool : NSObject
 typedef enum {
     XMPPResultTypeSuccess, // 登录成功
@@ -49,5 +50,9 @@ singleton_interface(MRXMPPTool)
  */
 @property(nonatomic,strong)XMPPvCardTempModule *vCard;
 
+/**
+ *  花名册
+ */
+@property(nonatomic,strong)XMPPRoster *roster;
 
 @end

@@ -160,6 +160,7 @@
 		8EB7DA551B4652F000BA8FDB /* XMPPSRVResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7D9E31B4652F000BA8FDB /* XMPPSRVResolver.m */; };
 		8EB7DA561B4652F000BA8FDB /* XMPPStringPrep.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB7D9E51B4652F000BA8FDB /* XMPPStringPrep.m */; };
 		8EB7DA581B46532900BA8FDB /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB7DA571B46532900BA8FDB /* libresolv.dylib */; };
+		8EB841FA1B4CFD7B0038E136 /* MRContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB841F91B4CFD7B0038E136 /* MRContactTableViewController.m */; };
 		8EC164851B4AFC1C00471EF6 /* MRProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC164841B4AFC1C00471EF6 /* MRProfileTableViewController.m */; };
 		8ECE2BE41B486BA600979FA7 /* MRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2BE31B486BA600979FA7 /* MRUserInfo.m */; };
 		8ECE2BE71B48791700979FA7 /* MRBaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2BE61B48791700979FA7 /* MRBaseLoginViewController.m */; };
@@ -489,6 +490,8 @@
 		8EB7DA571B46532900BA8FDB /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		8EB7DA591B46535600BA8FDB /* XMPPFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPFramework.h; sourceTree = "<group>"; };
 		8EB7DA5A1B46539000BA8FDB /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		8EB841F81B4CFD7B0038E136 /* MRContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRContactTableViewController.h; sourceTree = "<group>"; };
+		8EB841F91B4CFD7B0038E136 /* MRContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRContactTableViewController.m; sourceTree = "<group>"; };
 		8EC164831B4AFC1C00471EF6 /* MRProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRProfileTableViewController.h; sourceTree = "<group>"; };
 		8EC164841B4AFC1C00471EF6 /* MRProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRProfileTableViewController.m; sourceTree = "<group>"; };
 		8ECE2BE11B486B8000979FA7 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -550,6 +553,8 @@
 				8EC164841B4AFC1C00471EF6 /* MRProfileTableViewController.m */,
 				8EA29A781B4C3EB600850744 /* MREditTableViewController.h */,
 				8EA29A791B4C3EB600850744 /* MREditTableViewController.m */,
+				8EB841F81B4CFD7B0038E136 /* MRContactTableViewController.h */,
+				8EB841F91B4CFD7B0038E136 /* MRContactTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1702,6 +1707,7 @@
 				8EB7DA441B4652F000BA8FDB /* XMPPBlocking.m in Sources */,
 				8EB7DA2E1B4652F000BA8FDB /* XMPPMessage+XEP_0066.m in Sources */,
 				8EB7D9FF1B4652F000BA8FDB /* XMPPRoster.xcdatamodel in Sources */,
+				8EB841FA1B4CFD7B0038E136 /* MRContactTableViewController.m in Sources */,
 				8EB7DA0B1B4652F000BA8FDB /* XMPPLastActivity.m in Sources */,
 				8EB7DA121B4652F000BA8FDB /* XMPPRoomHybridStorage.m in Sources */,
 				8EB7DA481B4652F000BA8FDB /* XMPPTime.m in Sources */,
