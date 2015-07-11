@@ -48,13 +48,17 @@ singleton_interface(MRXMPPTool)
 /**
  *  电子名片
  */
-@property(nonatomic,strong)XMPPvCardTempModule *vCard;
+@property(nonatomic,strong,readonly)XMPPvCardTempModule *vCard;
 
 /**
  *  花名册
  */
-@property(nonatomic,strong)XMPPRoster *roster;
+@property(nonatomic,strong,readonly)XMPPRoster *roster;
+/**
+ *  花名册存储
+ */
+@property(nonatomic,strong,readonly)XMPPRosterCoreDataStorage *rosterStorage;
 
-@property(nonatomic,strong)XMPPRosterCoreDataStorage *rosterStorage;
+@property(nonatomic,strong,readonly)XMPPStream *xmppStream;
 
 @end

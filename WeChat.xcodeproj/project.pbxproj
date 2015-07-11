@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E2128CC1B50A6C7006BEE08 /* MRAddContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2128CB1B50A6C7006BEE08 /* MRAddContactTableViewController.m */; };
 		8E2FD72E1B49AEB100CD40C5 /* MRXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FD72D1B49AEB100CD40C5 /* MRXMPPTool.m */; };
 		8E2FF02A1B47BE2D003EA3C7 /* UIButton+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FF01F1B47BE2D003EA3C7 /* UIButton+WF.m */; };
 		8E2FF02B1B47BE2D003EA3C7 /* UIImage+WF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2FF0211B47BE2D003EA3C7 /* UIImage+WF.m */; };
@@ -178,6 +179,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E2128CA1B50A6C6006BEE08 /* MRAddContactTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRAddContactTableViewController.h; sourceTree = "<group>"; };
+		8E2128CB1B50A6C7006BEE08 /* MRAddContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRAddContactTableViewController.m; sourceTree = "<group>"; };
 		8E2FD72C1B49AEB100CD40C5 /* MRXMPPTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRXMPPTool.h; sourceTree = "<group>"; };
 		8E2FD72D1B49AEB100CD40C5 /* MRXMPPTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRXMPPTool.m; sourceTree = "<group>"; };
 		8E2FF01D1B47BE2D003EA3C7 /* CategoryWF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryWF.h; sourceTree = "<group>"; };
@@ -555,6 +558,8 @@
 				8EA29A791B4C3EB600850744 /* MREditTableViewController.m */,
 				8EB841F81B4CFD7B0038E136 /* MRContactTableViewController.h */,
 				8EB841F91B4CFD7B0038E136 /* MRContactTableViewController.m */,
+				8E2128CA1B50A6C6006BEE08 /* MRAddContactTableViewController.h */,
+				8E2128CB1B50A6C7006BEE08 /* MRAddContactTableViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -945,14 +950,14 @@
 				8EB7D8F71B4652F000BA8FDB /* CoreDataStorage */,
 				8EB7D8FB1B4652F000BA8FDB /* GoogleSharedStatus */,
 				8EB7D8FE1B4652F000BA8FDB /* ProcessOne */,
-				8EB7D9011B4652F000BA8FDB /* Reconnect */,
-				8EB7D9041B4652F000BA8FDB /* Roster */,
+				8EB7D9011B4652F000BA8FDB /* Reconnect(重连接) */,
+				8EB7D9041B4652F000BA8FDB /* Roster(花名册) */,
 				8EB7D91C1B4652F000BA8FDB /* SystemInputActivityMonitor */,
 				8EB7D91F1B4652F000BA8FDB /* XEP-0009 */,
 				8EB7D9261B4652F000BA8FDB /* XEP-0012 */,
 				8EB7D92B1B4652F000BA8FDB /* XEP-0016 */,
 				8EB7D92E1B4652F000BA8FDB /* XEP-0045 */,
-				8EB7D9521B4652F000BA8FDB /* XEP-0054 */,
+				8EB7D9521B4652F000BA8FDB /* XEP-0054(电子名片) */,
 				8EB7D96E1B4652F000BA8FDB /* XEP-0059 */,
 				8EB7D9731B4652F000BA8FDB /* XEP-0060 */,
 				8EB7D9781B4652F000BA8FDB /* XEP-0065 */,
@@ -963,7 +968,7 @@
 				8EB7D98B1B4652F000BA8FDB /* XEP-0100 */,
 				8EB7D98E1B4652F000BA8FDB /* XEP-0106 */,
 				8EB7D9911B4652F000BA8FDB /* XEP-0115 */,
-				8EB7D99C1B4652F000BA8FDB /* XEP-0136 */,
+				8EB7D99C1B4652F000BA8FDB /* XEP-0136(消息模块) */,
 				8EB7D9A81B4652F000BA8FDB /* XEP-0153 */,
 				8EB7D9AB1B4652F000BA8FDB /* XEP-0172 */,
 				8EB7D9B01B4652F000BA8FDB /* XEP-0184 */,
@@ -1018,16 +1023,17 @@
 			path = ProcessOne;
 			sourceTree = "<group>";
 		};
-		8EB7D9011B4652F000BA8FDB /* Reconnect */ = {
+		8EB7D9011B4652F000BA8FDB /* Reconnect(重连接) */ = {
 			isa = PBXGroup;
 			children = (
 				8EB7D9021B4652F000BA8FDB /* XMPPReconnect.h */,
 				8EB7D9031B4652F000BA8FDB /* XMPPReconnect.m */,
 			);
+			name = "Reconnect(重连接)";
 			path = Reconnect;
 			sourceTree = "<group>";
 		};
-		8EB7D9041B4652F000BA8FDB /* Roster */ = {
+		8EB7D9041B4652F000BA8FDB /* Roster(花名册) */ = {
 			isa = PBXGroup;
 			children = (
 				8EB7D9051B4652F000BA8FDB /* CoreDataStorage */,
@@ -1038,6 +1044,7 @@
 				8EB7D91A1B4652F000BA8FDB /* XMPPRosterPrivate.h */,
 				8EB7D91B1B4652F000BA8FDB /* XMPPUser.h */,
 			);
+			name = "Roster(花名册)";
 			path = Roster;
 			sourceTree = "<group>";
 		};
@@ -1174,7 +1181,7 @@
 			path = MemoryStorage;
 			sourceTree = "<group>";
 		};
-		8EB7D9521B4652F000BA8FDB /* XEP-0054 */ = {
+		8EB7D9521B4652F000BA8FDB /* XEP-0054(电子名片) */ = {
 			isa = PBXGroup;
 			children = (
 				8EB7D9531B4652F000BA8FDB /* CoreDataStorage */,
@@ -1195,6 +1202,7 @@
 				8EB7D96C1B4652F000BA8FDB /* XMPPvCardTempTel.h */,
 				8EB7D96D1B4652F000BA8FDB /* XMPPvCardTempTel.m */,
 			);
+			name = "XEP-0054(电子名片)";
 			path = "XEP-0054";
 			sourceTree = "<group>";
 		};
@@ -1327,13 +1335,14 @@
 			path = CoreDataStorage;
 			sourceTree = "<group>";
 		};
-		8EB7D99C1B4652F000BA8FDB /* XEP-0136 */ = {
+		8EB7D99C1B4652F000BA8FDB /* XEP-0136(消息模块) */ = {
 			isa = PBXGroup;
 			children = (
 				8EB7D99D1B4652F000BA8FDB /* CoreDataStorage */,
 				8EB7D9A61B4652F000BA8FDB /* XMPPMessageArchiving.h */,
 				8EB7D9A71B4652F000BA8FDB /* XMPPMessageArchiving.m */,
 			);
+			name = "XEP-0136(消息模块)";
 			path = "XEP-0136";
 			sourceTree = "<group>";
 		};
@@ -1692,6 +1701,7 @@
 				8EB7DA2C1B4652F000BA8FDB /* TURNSocket.m in Sources */,
 				8EB7DA4A1B4652F000BA8FDB /* XEP_0223.m in Sources */,
 				8EB7DA411B4652F000BA8FDB /* XMPPPresence+XEP_0172.m in Sources */,
+				8E2128CC1B50A6C7006BEE08 /* MRAddContactTableViewController.m in Sources */,
 				8EB7DA1F1B4652F000BA8FDB /* XMPPvCardTempCoreDataStorageObject.m in Sources */,
 				8EB7D8B51B4651C200BA8FDB /* DDTTYLogger.m in Sources */,
 				8EB7DA111B4652F000BA8FDB /* XMPPRoomHybrid.xcdatamodeld in Sources */,

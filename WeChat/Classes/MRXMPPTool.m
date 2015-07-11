@@ -21,7 +21,7 @@
 @interface MRXMPPTool ()
 {
     // xmpp流
-    XMPPStream *_xmppStream;
+//    XMPPStream *_xmppStream;
     // 自定义回调block
     XMPPResultBlock _resultBlock;
 
@@ -38,6 +38,10 @@
 //    XMPPRoster *_roster;
     // 花名册存储
 //    XMPPRosterCoreDataStorage *_rosterStorage;
+    
+    // 消息
+    XMPPMessageArchiving *_message;
+    XMPPMessageArchivingCoreDataStorage *_messageStorage;
     
 }
 
@@ -90,7 +94,39 @@ singleton_implementation(MRXMPPTool)
     _roster = [[XMPPRoster alloc] initWithRosterStorage:_rosterStorage];
     [_roster activate:_xmppStream];
     
+    // 添加消息模块
+    _messageStorage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
+    _message = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:_messageStorage];
+    [_message activate:_xmppStream];
+    
 }
+
+#pragma mark - 释放XMPPStream资源
+- (void)tearDownXMPP
+{
+    // 移除代理
+    [_xmppStream removeDelegate:self];
+    
+    // 停止模块
+    [_vCard deactivate];
+    [_avatar deactivate];
+    [_reconnect deactivate];
+    [_roster deactivate];
+    [_message deactivate];
+    
+    // 关闭连接
+    [_xmppStream disconnect];
+    
+    // 清空资源
+    _vCard = nil;
+    _avatar = nil;
+    _reconnect = nil;
+    _roster = nil;
+    _message = nil;
+    _xmppStream = nil;
+}
+
+
 - (void)connectToHost
 {
     Mylog(@"开始连接到主机");
@@ -305,28 +341,7 @@ singleton_implementation(MRXMPPTool)
     [self tearDownXMPP];
 }
 
-#pragma mark - 释放XMPPStream资源
-- (void)tearDownXMPP
-{
-    // 移除代理
-    [_xmppStream removeDelegate:self];
-    
-    // 停止模块
-    [_vCard deactivate];
-    [_avatar deactivate];
-    [_reconnect deactivate];
-    [_roster deactivate];
-    
-    // 关闭连接
-    [_xmppStream disconnect];
-    
-    // 清空资源
-    _vCard = nil;
-    _avatar = nil;
-    _reconnect = nil;
-    _roster = nil;
-    _xmppStream = nil;
-}
+
 
 
 @end

@@ -57,7 +57,7 @@
         <!--通讯录-->
         <scene sceneID="Xm1-rU-4JE">
             <objects>
-                <tableViewController id="h0F-OZ-Gw1" customClass="MRContactTableViewController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="h0F-OZ-Gw1" customClass="MRContactTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kdN-KR-fpM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,11 +89,87 @@
                             <outlet property="delegate" destination="h0F-OZ-Gw1" id="ALL-qe-3bX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="通讯录" id="NJz-O6-QUi"/>
+                    <navigationItem key="navigationItem" title="通讯录" id="NJz-O6-QUi">
+                        <barButtonItem key="rightBarButtonItem" image="contacts_add_friend" id="570-uf-udm">
+                            <connections>
+                                <segue destination="oMe-b1-hRc" kind="show" id="mVV-Vz-3yf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="EJm-Eq-aYn" kind="show" identifier="contact2message" id="oKj-Sp-9hq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJK-FH-d2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="681" y="-1651"/>
+        </scene>
+        <!--Add Contact Table View Controller-->
+        <scene sceneID="cgd-dT-L0c">
+            <objects>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="oMe-b1-hRc" customClass="MRAddContactTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zy7-Up-XZ5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="fyk-3C-frB">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="Cyz-YH-L6q">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cyz-YH-L6q" id="NuW-dn-Gew">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入联系人号码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JF0-7V-4Nt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="oMe-b1-hRc" id="UWU-EC-gkT"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JF0-7V-4Nt" firstAttribute="leading" secondItem="NuW-dn-Gew" secondAttribute="leading" id="0hd-ds-pCY"/>
+                                                <constraint firstAttribute="trailing" secondItem="JF0-7V-4Nt" secondAttribute="trailing" id="RxT-w4-dOM"/>
+                                                <constraint firstItem="JF0-7V-4Nt" firstAttribute="top" secondItem="NuW-dn-Gew" secondAttribute="top" id="WZF-rN-Lqh"/>
+                                                <constraint firstAttribute="bottom" secondItem="JF0-7V-4Nt" secondAttribute="bottom" id="t4n-zq-jvd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="oMe-b1-hRc" id="EOF-nC-FaM"/>
+                            <outlet property="delegate" destination="oMe-b1-hRc" id="JmR-VH-eoX"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="addContactField" destination="JF0-7V-4Nt" id="2bg-0R-ONF"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8Z-3z-1GL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1513" y="-2024"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ihx-e5-e8l">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="EJm-Eq-aYn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="asf-NN-96W"/>
+                        <viewControllerLayoutGuide type="bottom" id="UN7-5U-JPZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tRH-U2-hwG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gU7-Dk-P3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1513" y="-1203"/>
         </scene>
         <!--发现-->
         <scene sceneID="vRg-Fa-kIX">
@@ -155,21 +231,21 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OcW-5M-ChL" id="H1t-vH-4st">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7W-2c-XXZ" userLabel="昵称">
-                                                    <rect key="frame" x="66" y="9" width="105" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujx-tv-qpE" userLabel="账号">
-                                                    <rect key="frame" x="66" y="36" width="151" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="微信号：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujx-tv-qpE" userLabel="账号">
+                                                    <rect key="frame" x="66" y="37" width="151" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultHead" translatesAutoresizingMaskIntoConstraints="NO" id="Bjb-c4-jCN" userLabel="头像">
                                                     <rect key="frame" x="8" y="8" width="50" height="50"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I7W-2c-XXZ" userLabel="昵称">
+                                                    <rect key="frame" x="66" y="8" width="105" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -205,7 +281,7 @@
         <!--个人设置-->
         <scene sceneID="r6n-iB-7ci">
             <objects>
-                <tableViewController id="TsX-xF-Itz" userLabel="个人设置" customClass="MRProfileTableViewController" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="TsX-xF-Itz" userLabel="个人设置" customClass="MRProfileTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="arA-2B-Gu6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -516,6 +592,7 @@
     </scenes>
     <resources>
         <image name="DefaultHead" width="46" height="46"/>
+        <image name="contacts_add_friend" width="28" height="30"/>
         <image name="tabbar_contacts" width="27" height="23"/>
         <image name="tabbar_discover" width="23" height="23"/>
         <image name="tabbar_mainframe" width="25" height="23"/>
