@@ -8,6 +8,8 @@
 
 #import "MRContactTableViewController.h"
 #import <CoreData/CoreData.h>
+#import "MRChatViewController.h"
+
 
 @interface MRContactTableViewController ()<NSFetchedResultsControllerDelegate>
 {
@@ -170,15 +172,28 @@
 }
 
 
-/*
-#pragma mark - Navigation
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 主动取消选中状态
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // 获取聊天用户
+    XMPPUserCoreDataStorageObject *friend =  _resultController.fetchedObjects[indexPath.row];
 
+    // 手动执行segue
+    [self performSegueWithIdentifier:@"contact2message" sender:friend.jid];
+}
+
+
+
+#pragma mark - Navigation
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    MRChatViewController *chatVc = segue.destinationViewController;
+    chatVc.friendJid = sender;
+
 }
-*/
+
 
 #pragma mark - NSFetchedResultsControllerDelegate
 /**
@@ -193,9 +208,9 @@
     [self.tableView reloadData];
 }
 
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
-{
-    Mylog(@"-----");
-}
+//- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+//{
+//    Mylog(@"-----");
+//}
 
 @end

@@ -163,6 +163,9 @@
 		8EB7DA581B46532900BA8FDB /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EB7DA571B46532900BA8FDB /* libresolv.dylib */; };
 		8EB841FA1B4CFD7B0038E136 /* MRContactTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB841F91B4CFD7B0038E136 /* MRContactTableViewController.m */; };
 		8EC164851B4AFC1C00471EF6 /* MRProfileTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC164841B4AFC1C00471EF6 /* MRProfileTableViewController.m */; };
+		8EC1732E1B50BFB3009267B3 /* MRChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC1732D1B50BFB3009267B3 /* MRChatViewController.m */; };
+		8EC173321B50C116009267B3 /* MRInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC173311B50C116009267B3 /* MRInputView.m */; };
+		8EC173341B50C12C009267B3 /* MRInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EC173331B50C12C009267B3 /* MRInputView.xib */; };
 		8ECE2BE41B486BA600979FA7 /* MRUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2BE31B486BA600979FA7 /* MRUserInfo.m */; };
 		8ECE2BE71B48791700979FA7 /* MRBaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2BE61B48791700979FA7 /* MRBaseLoginViewController.m */; };
 		8ECE2BEA1B48913900979FA7 /* MRRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE2BE91B48913900979FA7 /* MRRegisterViewController.m */; };
@@ -497,6 +500,11 @@
 		8EB841F91B4CFD7B0038E136 /* MRContactTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRContactTableViewController.m; sourceTree = "<group>"; };
 		8EC164831B4AFC1C00471EF6 /* MRProfileTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRProfileTableViewController.h; sourceTree = "<group>"; };
 		8EC164841B4AFC1C00471EF6 /* MRProfileTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRProfileTableViewController.m; sourceTree = "<group>"; };
+		8EC1732C1B50BFB3009267B3 /* MRChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRChatViewController.h; sourceTree = "<group>"; };
+		8EC1732D1B50BFB3009267B3 /* MRChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRChatViewController.m; sourceTree = "<group>"; };
+		8EC173301B50C116009267B3 /* MRInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRInputView.h; sourceTree = "<group>"; };
+		8EC173311B50C116009267B3 /* MRInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRInputView.m; sourceTree = "<group>"; };
+		8EC173331B50C12C009267B3 /* MRInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRInputView.xib; sourceTree = "<group>"; };
 		8ECE2BE11B486B8000979FA7 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		8ECE2BE21B486BA600979FA7 /* MRUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRUserInfo.h; sourceTree = "<group>"; };
 		8ECE2BE31B486BA600979FA7 /* MRUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRUserInfo.m; sourceTree = "<group>"; };
@@ -560,6 +568,8 @@
 				8EB841F91B4CFD7B0038E136 /* MRContactTableViewController.m */,
 				8E2128CA1B50A6C6006BEE08 /* MRAddContactTableViewController.h */,
 				8E2128CB1B50A6C7006BEE08 /* MRAddContactTableViewController.m */,
+				8EC1732C1B50BFB3009267B3 /* MRChatViewController.h */,
+				8EC1732D1B50BFB3009267B3 /* MRChatViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -685,6 +695,7 @@
 		8EB7D8841B46510B00BA8FDB /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8EC1732F1B50C0F0009267B3 /* View */,
 				8E2FF0301B47C6AE003EA3C7 /* Controller */,
 				8EB7D8661B464F8B00BA8FDB /* Main.storyboard */,
 			);
@@ -1506,6 +1517,16 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		8EC1732F1B50C0F0009267B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8EC173301B50C116009267B3 /* MRInputView.h */,
+				8EC173311B50C116009267B3 /* MRInputView.m */,
+				8EC173331B50C12C009267B3 /* MRInputView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		8ECE2BDE1B486B3000979FA7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1610,6 +1631,7 @@
 			files = (
 				8EB7D8BD1B4651C200BA8FDB /* build-libidn.sh in Resources */,
 				8EB7D8681B464F8B00BA8FDB /* Main.storyboard in Resources */,
+				8EC173341B50C12C009267B3 /* MRInputView.xib in Resources */,
 				8E842DF51B4678720056AA6F /* Login.storyboard in Resources */,
 				8EB7D86D1B464F8B00BA8FDB /* LaunchScreen.xib in Resources */,
 				8EB7D8B81B4651C200BA8FDB /* README.txt in Resources */,
@@ -1697,6 +1719,7 @@
 				8EB7DA381B4652F000BA8FDB /* XMPPCapsResourceCoreDataStorageObject.m in Sources */,
 				8EB7DA541B4652F000BA8FDB /* XMPPIDTracker.m in Sources */,
 				8EB7DA401B4652F000BA8FDB /* XMPPMessage+XEP_0172.m in Sources */,
+				8EC1732E1B50BFB3009267B3 /* MRChatViewController.m in Sources */,
 				8EB7DA151B4652F000BA8FDB /* XMPPRoomMemoryStorage.m in Sources */,
 				8EB7DA2C1B4652F000BA8FDB /* TURNSocket.m in Sources */,
 				8EB7DA4A1B4652F000BA8FDB /* XEP_0223.m in Sources */,
@@ -1713,6 +1736,7 @@
 				8E2FF02A1B47BE2D003EA3C7 /* UIButton+WF.m in Sources */,
 				8EB7DA031B4652F000BA8FDB /* XMPPRosterMemoryStorage.m in Sources */,
 				8E4E57891B46EEC1007800AD /* MRLoginViewController.m in Sources */,
+				8EC173321B50C116009267B3 /* MRInputView.m in Sources */,
 				8E4E578C1B46EEE5007800AD /* MROtherLoginViewController.m in Sources */,
 				8EB7DA441B4652F000BA8FDB /* XMPPBlocking.m in Sources */,
 				8EB7DA2E1B4652F000BA8FDB /* XMPPMessage+XEP_0066.m in Sources */,

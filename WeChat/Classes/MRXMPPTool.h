@@ -61,4 +61,8 @@ singleton_interface(MRXMPPTool)
 
 @property(nonatomic,strong,readonly)XMPPStream *xmppStream;
 
+@property(nonatomic,strong,readonly)XMPPMessageArchiving *message;
+
+@property(nonatomic,strong,readonly)XMPPMessageArchivingCoreDataStorage *messageStorage;
+
 @end

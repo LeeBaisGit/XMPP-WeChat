@@ -57,7 +57,7 @@
         <!--通讯录-->
         <scene sceneID="Xm1-rU-4JE">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="h0F-OZ-Gw1" customClass="MRContactTableViewController" sceneMemberID="viewController">
+                <tableViewController id="h0F-OZ-Gw1" customClass="MRContactTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kdN-KR-fpM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,10 +153,10 @@
             </objects>
             <point key="canvasLocation" x="1513" y="-2024"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="ihx-e5-e8l">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="EJm-Eq-aYn" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="EJm-Eq-aYn" customClass="MRChatViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="asf-NN-96W"/>
                         <viewControllerLayoutGuide type="bottom" id="UN7-5U-JPZ"/>

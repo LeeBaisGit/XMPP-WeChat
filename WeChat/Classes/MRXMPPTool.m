@@ -40,8 +40,8 @@
 //    XMPPRosterCoreDataStorage *_rosterStorage;
     
     // 消息
-    XMPPMessageArchiving *_message;
-    XMPPMessageArchivingCoreDataStorage *_messageStorage;
+//    XMPPMessageArchiving *_message;
+//    XMPPMessageArchivingCoreDataStorage *_messageStorage;
     
 }
 
