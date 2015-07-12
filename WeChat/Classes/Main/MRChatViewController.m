@@ -188,8 +188,33 @@
     if (textView.contentSize.height > 33 && textView.contentSize.height < 68) {
         self.inputViewHeightCons.constant = textView.contentSize.height + 20;
     }
+    
+    // 聊天消息发送
+    // textView中得文字编辑完成之后  换行就等于点击了send按钮
+    if ([text rangeOfString:@"\n"].length != 0) {
+        [self sendMessageWithText:text];
+        // 发送完成 清空数据
+        textView.text = nil;
+        // 修改约束为初始值
+        self.inputViewHeightCons.constant = 50;
+    }
+    
 
 }
+
+#pragma mark 发送聊天数据
+- (void)sendMessageWithText:(NSString *)text
+{
+    // 创建聊天信息 设置聊天类型和聊天对象
+    XMPPMessage *message = [XMPPMessage messageWithType:@"chat" to:self.friendJid];
+    // 设置聊天内容
+    [message addBody:text];
+    
+    // 发送聊天消息
+    [[MRXMPPTool sharedMRXMPPTool].xmppStream sendElement:message];
+}
+
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -216,8 +241,10 @@
     }else { // 接收
         text = [NSString stringWithFormat:@"好友:%@", message.body];
     }
-    
     cell.textLabel.text = text;
+    
+    // 滚动到最新的聊天信息
+    [self scrollToBottom];
     
     return cell;
 }
@@ -234,6 +261,23 @@
 {
     // 刷新表格
     [self.tableView reloadData];
+    // 滚动到最新的聊天信息
+    [self scrollToBottom];
 }
+
+/**
+ *  滚动到聊天数据的最新一条
+ */
+- (void)scrollToBottom
+{
+    if (_fetchResultsController.fetchedObjects.count) {
+        // 获取索引
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_fetchResultsController.fetchedObjects.count - 1 inSection:0];
+        // 滚动到最新的聊天数据
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
+    
+}
+
 
 @end
