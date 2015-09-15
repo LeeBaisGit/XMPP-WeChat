@@ -21,6 +21,7 @@
  *  inputView中得textView
  */
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UIButton *addBtn;
 
 
 @end

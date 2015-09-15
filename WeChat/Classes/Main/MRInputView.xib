@@ -17,19 +17,37 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5LV-7T-UJd">
+                    <rect key="frame" x="550" y="0.0" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="L2n-g0-cd7"/>
+                        <constraint firstAttribute="width" constant="50" id="Vmu-Af-bYL"/>
+                    </constraints>
+                    <state key="normal" image="TypeSelectorBtn_Black">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted" image="TypeSelectorBtnHL_Black"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="K4N-3r-883" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="Om2-ue-iAY"/>
                 <constraint firstAttribute="bottom" secondItem="K4N-3r-883" secondAttribute="bottom" constant="10" id="ZbX-qC-vsQ"/>
+                <constraint firstAttribute="trailing" secondItem="5LV-7T-UJd" secondAttribute="trailing" id="aMq-cr-hFX"/>
                 <constraint firstAttribute="trailing" secondItem="K4N-3r-883" secondAttribute="trailing" constant="100" id="auy-ep-0gK"/>
                 <constraint firstItem="K4N-3r-883" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="jBW-Xz-Zei"/>
+                <constraint firstAttribute="centerY" secondItem="5LV-7T-UJd" secondAttribute="centerY" id="slJ-4m-4LN"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="addBtn" destination="5LV-7T-UJd" id="8wn-JC-f6a"/>
                 <outlet property="textView" destination="K4N-3r-883" id="yzS-IW-Cr7"/>
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="TypeSelectorBtnHL_Black" width="35" height="35"/>
+        <image name="TypeSelectorBtn_Black" width="35" height="35"/>
+    </resources>
 </document>

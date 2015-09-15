@@ -8,9 +8,10 @@
 
 #import "MRChatViewController.h"
 #import "MRInputView.h"
+#import "HttpTool.h"
+#import "UIImageView+WebCache.h"
 
-
-@interface MRChatViewController ()<UITextViewDelegate,UITableViewDataSource, UITableViewDelegate,NSFetchedResultsControllerDelegate>
+@interface MRChatViewController ()<UITextViewDelegate,UITableViewDataSource, UITableViewDelegate,NSFetchedResultsControllerDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     NSFetchedResultsController *_fetchResultsController;
 }
@@ -21,9 +22,21 @@
 
 @property(nonatomic,weak)UITableView *tableView;
 
+@property(nonatomic,strong)HttpTool *httpTool;
+
 @end
 
 @implementation MRChatViewController
+
+#pragma mark - 懒加载
+- (HttpTool *)httpTool
+{
+    if (_httpTool == nil) {
+        _httpTool = [[HttpTool alloc] init];
+    }
+    return _httpTool;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -75,6 +88,7 @@
     MRInputView *inputView = [MRInputView inputView];
     inputView.translatesAutoresizingMaskIntoConstraints = NO;
     inputView.textView.delegate = self;
+    [inputView.addBtn addTarget:self action:@selector(addBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:inputView];
     
 
@@ -135,6 +149,27 @@
     
 }
 
+#pragma mark inputView中“+”按钮的点击
+- (void)addBtnClick
+{
+    // 判断相册是否可用
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        // 提示
+        [MBProgressHUD showError:@"相册不可用" toView:self.view];
+        return;
+    }
+    
+    // 创建图片选择器
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    // 设置图片来源
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    // 设置代理
+    imagePicker.delegate = self;
+    
+    // 显示图片选择器
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
 
 #pragma mark - 键盘通知的监听
 - (void)keyboardDidShow:(NSNotification *)notification
@@ -186,13 +221,14 @@
     
     // 文本输入框输入的内容 大于1行 且小于3行的情况下 设置inputView的高度随着行数增加增加
     if (textView.contentSize.height > 33 && textView.contentSize.height < 68) {
+        Mylog(@"%f", textView.contentSize.height);
         self.inputViewHeightCons.constant = textView.contentSize.height + 20;
     }
     
     // 聊天消息发送
     // textView中得文字编辑完成之后  换行就等于点击了send按钮
     if ([text rangeOfString:@"\n"].length != 0) {
-        [self sendMessageWithText:text];
+        [self sendMessageWithText:text bodyType:@"text"];
         // 发送完成 清空数据
         textView.text = nil;
         // 修改约束为初始值
@@ -203,12 +239,14 @@
 }
 
 #pragma mark 发送聊天数据
-- (void)sendMessageWithText:(NSString *)text
+- (void)sendMessageWithText:(NSString *)text bodyType:(NSString *)bodyType
 {
     // 创建聊天信息 设置聊天类型和聊天对象
     XMPPMessage *message = [XMPPMessage messageWithType:@"chat" to:self.friendJid];
     // 设置聊天内容
     [message addBody:text];
+    
+    [message addAttributeWithName:@"bodyType" stringValue:bodyType];
     
     // 发送聊天消息
     [[MRXMPPTool sharedMRXMPPTool].xmppStream sendElement:message];
@@ -235,13 +273,22 @@
     XMPPMessageArchiving_Message_CoreDataObject *message =  _fetchResultsController.fetchedObjects[indexPath.row];
     
     Mylog(@"%@", _fetchResultsController.fetchedObjects);
-    NSString *text = nil;
-    if ([message.outgoing integerValue]) { // 发出
-        text = [NSString stringWithFormat:@"我:%@", message.body];
-    }else { // 接收
-        text = [NSString stringWithFormat:@"好友:%@", message.body];
+    // 判断是纯文本还是图片
+    NSString *bodyType = [message.message attributeStringValueForName:@"bodyType"];
+    if ([bodyType isEqualToString:@"image"]) {
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:message.body] placeholderImage:[UIImage imageNamed:@"DefaultProfileHead_qq"]];
+        cell.textLabel.text = nil;
+    }else if ([bodyType isEqualToString:@"text"]){
+        NSString *text = nil;
+        if ([message.outgoing integerValue]) { // 发出
+            text = [NSString stringWithFormat:@"我:%@", message.body];
+        }else { // 接收
+            text = [NSString stringWithFormat:@"好友:%@", message.body];
+        }
+        cell.textLabel.text = text;
+        cell.imageView.image = nil;
     }
-    cell.textLabel.text = text;
+    
     
     // 滚动到最新的聊天信息
     [self scrollToBottom];
@@ -279,5 +326,45 @@
     
 }
 
+#pragma mark - UINavigationControllerDelegate, UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    Mylog(@"%@", info);
+    // dimiss控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // 获取图片
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    // 转换成二进制数据
+    NSData *data = UIImageJPEGRepresentation(image, 1.0);
+
+    // 拼接文件名 用户名 + 时间(201412111537)年月日时分秒
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyyMMddHHmmss";
+    NSString *timeStr = [formatter stringFromDate:[NSDate date]];
+    
+    NSString *fileName = [[MRUserInfo sharedMRUserInfo].account stringByAppendingString:timeStr];
+    
+    NSString *uploadFileUrl = [@"http://localhost:8080/imfileserver/Upload/Image/" stringByAppendingString:fileName];
+    
+    // 使用HTTP put 上传
+    [self.httpTool uploadData:data url:[NSURL URLWithString:uploadFileUrl] progressBlock:nil completion:^(NSError *error) {
+        if (error) {
+            Mylog(@"%@", error);
+        }else {
+            Mylog(@"上传成功");
+            // 图片发送成功，把图片的URL传Openfire的服务
+            [self sendMessageWithText:uploadFileUrl bodyType:@"image"];
+        }
+    }];
+    
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    Mylog(@"---");
+}
 
 @end
